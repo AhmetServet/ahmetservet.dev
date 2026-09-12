@@ -1,6 +1,6 @@
 # ahmetservet.dev
 
-A preview of Ahmet Servet Polat's personal site. Astro renders the pages as static HTML. React is used only for the decorative background; writing lives in Markdown or MDX files.
+A preview of Ahmet Servet Polat's personal site. Astro renders the pages as static HTML, with English and Turkish routes, a light/dark theme, and an optional animated background. React is used only for the decorative background; writing lives in Markdown or MDX files.
 
 ## Local development
 
@@ -11,7 +11,7 @@ pnpm install
 pnpm dev
 ```
 
-The local preview is at <http://localhost:4321/>. Build with `pnpm build`.
+The local preview is at <http://localhost:4321/>. Build with `pnpm build`, then inspect the generated site with `pnpm preview`.
 
 ## Coolify
 
@@ -26,8 +26,8 @@ docker run --rm -p 8080:80 ahmetservet-preview
 
 ## Content
 
-The homepage has English and Turkish versions. UI copy lives in `src/i18n/en.json` and `src/i18n/tr.json`; Astro handles the `/tr/` locale route. The project and article shown there are labeled previews, ready to be replaced with real content. Article source files are in `src/content/writing/`. Plain articles can be `.md`; interactive articles can be `.mdx`. Images and short videos can live in `public/` and be referenced from an article by URL, such as `/media/example.mp4`.
+The homepage is available in English at `/` and Turkish at `/tr/`. The header provides the language switch and light/dark theme toggle; the homepage links to the project, writing, résumé, GitHub, LinkedIn, and email. UI copy lives in `src/i18n/en.json` and `src/i18n/tr.json`. The project and article shown there are labeled previews, ready to be replaced with real content. Article source files are in `src/content/writing/`. Plain articles can be `.md`; interactive articles can be `.mdx`. Images and short videos can live in `public/` and be referenced from an article by URL, such as `/media/example.mp4`.
 
-The résumé is stored in `public/resume.pdf` and is previewed at `/resume/` and `/tr/resume/`; the browser's built-in PDF viewer provides zoom and download controls. The email link opens the visitor's mail app. The old Ghost posts and URL paths are intentionally not migrated.
+The résumé is stored in `public/resume.pdf` and is previewed at `/resume/` and `/tr/resume/`; the page also provides download and new-tab actions. The email link opens the visitor's mail app. The old Ghost posts and URL paths are intentionally not migrated.
 
 The animated background components derive from React Bits; see `LICENSE-REACT-BITS.md`.
