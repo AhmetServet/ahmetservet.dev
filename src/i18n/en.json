@@ -16,9 +16,9 @@
     "viewerTitle": "Résumé PDF preview"
   },
   "theme": {
-    "light": "Light",
-    "dark": "Dark",
-    "label": "Switch color theme"
+    "label": "Switch color theme",
+    "lightAction": "Switch to light theme",
+    "darkAction": "Switch to dark theme"
   },
   "introLead": "I’m Ahmet Servet Polat.",
   "introRest": "I study computer engineering, build software, and write about what I learn.",

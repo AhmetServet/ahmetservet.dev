@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>Ahmet Servet Polat</title>
+  <style>
+    .mark {
+      fill: none;
+      stroke: #262626;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .mark { stroke: #e6e6e4; }
+    }
+  </style>
+  <path class="mark" d="M23 78 50 20l27 58M34 57h32" />
+</svg>

@@ -16,9 +16,9 @@
     "viewerTitle": "CV PDF önizlemesi"
   },
   "theme": {
-    "light": "Açık",
-    "dark": "Koyu",
-    "label": "Renk temasını değiştir"
+    "label": "Renk temasını değiştir",
+    "lightAction": "Açık temaya geç",
+    "darkAction": "Koyu temaya geç"
   },
   "introLead": "Ben Ahmet Servet Polat.",
   "introRest": "Bilgisayar mühendisliği okuyorum, yazılım geliştiriyorum ve öğrendiklerimi yazıyorum.",

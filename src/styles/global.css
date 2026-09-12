@@ -47,7 +47,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 .language-switch span, .language-switch a { color: var(--muted); }
 .language-switch a { text-decoration: none; }
 .language-switch a[aria-current='page'] { color: var(--ink); }
-.theme-toggle { @apply cursor-pointer border-0 bg-transparent p-0; color: var(--muted); font-size: 12px; }
+.theme-toggle { @apply cursor-pointer border-0 bg-transparent p-0; display: inline-grid; place-items: center; width: 20px; height: 20px; color: var(--muted); }
+.theme-icon { display: block; width: 18px; height: 18px; }
+.theme-icon-moon { display: none; }
+:root[data-theme='dark'] .theme-icon-sun { display: none; }
+:root[data-theme='dark'] .theme-icon-moon { display: block; }
 .theme-toggle:hover, .language-switch a:hover { color: var(--ink); }
 
 .intro { margin-top: 76px; }
