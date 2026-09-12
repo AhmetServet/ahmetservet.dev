@@ -1,0 +1,26 @@
+{
+  "skip": "Skip to content",
+  "navigationLabel": "Main navigation",
+  "languageLabel": "Language",
+  "nav": {
+    "resume": "Résumé",
+    "work": "Projects",
+    "writing": "Writing",
+    "contact": "Contact"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "label": "Switch color theme"
+  },
+  "introLead": "I’m Ahmet Servet Polat.",
+  "introRest": "I study computer engineering, build software, and write about what I learn.",
+  "workPreview": "Project page preview",
+  "writingPreview": "A quieter place to build and write",
+  "email": "ahmetservet04@gmail.com",
+  "github": "GitHub",
+  "linkedin": "LinkedIn",
+  "back": "Back home",
+  "projectHeading": "Project page preview",
+  "projectLead": "Real project details will be added here."
+}

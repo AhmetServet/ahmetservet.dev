@@ -1,0 +1,26 @@
+{
+  "skip": "İçeriğe geç",
+  "navigationLabel": "Ana gezinme",
+  "languageLabel": "Dil seçimi",
+  "nav": {
+    "resume": "CV",
+    "work": "Projeler",
+    "writing": "Yazılar",
+    "contact": "İletişim"
+  },
+  "theme": {
+    "light": "Açık",
+    "dark": "Koyu",
+    "label": "Renk temasını değiştir"
+  },
+  "introLead": "Ben Ahmet Servet Polat.",
+  "introRest": "Bilgisayar mühendisliği okuyorum, yazılım geliştiriyorum ve öğrendiklerimi yazıyorum.",
+  "workPreview": "Proje sayfası örneği",
+  "writingPreview": "Üretmek ve yazmak için sakin bir yer",
+  "email": "ahmetservet04@gmail.com",
+  "github": "GitHub",
+  "linkedin": "LinkedIn",
+  "back": "Ana sayfa",
+  "projectHeading": "Proje sayfası örneği",
+  "projectLead": "Gerçek proje bilgileri buraya eklenecek."
+}

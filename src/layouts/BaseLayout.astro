@@ -1,0 +1,79 @@
+---
+import '@fontsource-variable/dm-sans/wght.css';
+import '../styles/global.css';
+import AmbientBackground from '../components/backgrounds/AmbientBackground.jsx';
+import { copy, rootFor } from '../i18n/index.mjs';
+
+const { lang = 'en', title = 'Ahmet Servet Polat', description = 'Projects, writing, and a place to think in public.', alternatePath } = Astro.props;
+const t = copy[lang];
+const path = Astro.url.pathname;
+const alternateHref = alternatePath || rootFor(lang === 'en' ? 'tr' : 'en');
+const variant = import.meta.env.PUBLIC_BACKGROUND_EFFECT?.toLowerCase() === 'silk' ? 'silk' : 'grainient';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4f3ef" />
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <link rel="alternate" hreflang={lang === 'en' ? 'tr' : 'en'} href={new URL(alternateHref, Astro.site)} />
+    <title>{title}</title>
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('color-theme');
+        document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t.skip}</a>
+    <div class="ambient-background" aria-hidden="true">
+      <AmbientBackground variant={variant} client:only="react" />
+    </div>
+    <div class="page-frame">
+      <header class="site-header shell">
+        <a class="brand" href={rootFor(lang)}>Ahmet Servet Polat</a>
+        <div class="header-controls">
+          <div class="language-switch" aria-label={t.languageLabel}>
+            <a href={lang === 'en' ? path : alternateHref} lang="en" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
+            <span aria-hidden="true">/</span>
+            <a href={lang === 'tr' ? path : alternateHref} lang="tr" aria-current={lang === 'tr' ? 'page' : undefined}>TR</a>
+          </div>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label={t.theme.label} aria-pressed="false" data-light={t.theme.light} data-dark={t.theme.dark}>
+            <span class="theme-label">{t.theme.dark}</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main" class="shell"><slot /></main>
+
+      <footer class="site-footer shell">
+        <span>© {new Date().getFullYear()} Ahmet Servet Polat</span>
+      </footer>
+    </div>
+    <script>
+      const button = document.querySelector('#theme-toggle');
+      const label = button?.querySelector('.theme-label');
+      const lightText = button?.dataset.light;
+      const darkText = button?.dataset.dark;
+      const sync = () => {
+        if (!button || !label) return;
+        const dark = document.documentElement.dataset.theme === 'dark';
+        button.setAttribute('aria-pressed', String(dark));
+        label.textContent = dark ? lightText : darkText;
+      };
+      sync();
+      button?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('color-theme', next); } catch { /* theme still works without storage */ }
+        sync();
+      });
+    </script>
+  </body>
+</html>
