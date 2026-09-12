@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { copy } from '../i18n/index.mjs';
+
+const lang = 'en';
+const t = copy[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={`404 | Ahmet Servet Polat`}
+  description={t.notFound.description}
+  alternatePath="/tr/"
+  alternateIsTranslation={false}
+>
+  <section class="not-found" aria-labelledby="not-found-title">
+    <p class="not-found-code" aria-hidden="true">404</p>
+    <h1 id="not-found-title"><em>{t.notFound.title}</em></h1>
+    <a class="not-found-link" href="/">{t.notFound.home}</a>
+  </section>
+</BaseLayout>

@@ -28,5 +28,10 @@
   "linkedin": "LinkedIn",
   "back": "Back home",
   "projectHeading": "Project page preview",
-  "projectLead": "Real project details will be added here."
+  "projectLead": "Real project details will be added here.",
+  "notFound": {
+    "title": "I think you lost.",
+    "home": "Get me home",
+    "description": "The page you are looking for could not be found."
+  }
 }

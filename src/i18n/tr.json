@@ -28,5 +28,10 @@
   "linkedin": "LinkedIn",
   "back": "Ana sayfa",
   "projectHeading": "Proje sayfası örneği",
-  "projectLead": "Gerçek proje bilgileri buraya eklenecek."
+  "projectLead": "Gerçek proje bilgileri buraya eklenecek.",
+  "notFound": {
+    "title": "Sanırım kayboldun.",
+    "home": "Beni ana sayfaya götür",
+    "description": "Aradığınız sayfa bulunamadı."
+  }
 }
