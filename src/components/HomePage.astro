@@ -7,6 +7,12 @@ const { lang = 'en' } = Astro.props;
 const t = copy[lang];
 const writingEntries = (await getCollection('writing', ({ data }) => data.locale === 'en'))
   .sort((a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt));
+const dateFormatter = new Intl.DateTimeFormat(lang === 'tr' ? 'tr-TR' : 'en-GB', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC'
+});
 const projectPath = lang === 'tr' ? '/tr/projects/project-preview/' : '/projects/project-preview/';
 const resumePath = lang === 'tr' ? '/tr/resume/' : '/resume/';
 ---
@@ -28,7 +34,14 @@ const resumePath = lang === 'tr' ? '/tr/resume/' : '/resume/';
     <section class="plain-section" id="writing" aria-labelledby="writing-title">
       <h2 id="writing-title">{t.nav.writing}</h2>
       <div class="plain-links">
-        {writingEntries.map(entry => <a href={`/writing/${entry.data.slug}/`}>{entry.data.title}</a>)}
+        {writingEntries.map(entry => (
+          <div class="writing-entry">
+            <a href={`/writing/${entry.data.slug}/`}>{entry.data.title}</a>
+            <time class="writing-date" datetime={entry.data.publishedAt}>
+              {dateFormatter.format(new Date(entry.data.publishedAt))}
+            </time>
+          </div>
+        ))}
       </div>
     </section>
 
