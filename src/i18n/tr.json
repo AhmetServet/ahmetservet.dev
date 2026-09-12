@@ -8,6 +8,13 @@
     "writing": "Yazılar",
     "contact": "İletişim"
   },
+  "resume": {
+    "title": "CV",
+    "description": "Güncel CV'yi tarayıcıda görüntüleyin veya bir kopyasını indirin.",
+    "download": "PDF'yi indir",
+    "open": "PDF'yi yeni sekmede aç",
+    "viewerTitle": "CV PDF önizlemesi"
+  },
   "theme": {
     "light": "Açık",
     "dark": "Koyu",

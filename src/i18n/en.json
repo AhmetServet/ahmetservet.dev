@@ -8,6 +8,13 @@
     "writing": "Writing",
     "contact": "Contact"
   },
+  "resume": {
+    "title": "Résumé",
+    "description": "View the current résumé in the browser or download a copy.",
+    "download": "Download PDF",
+    "open": "Open PDF in a new tab",
+    "viewerTitle": "Résumé PDF preview"
+  },
   "theme": {
     "light": "Light",
     "dark": "Dark",

@@ -4,7 +4,7 @@ import '../styles/global.css';
 import AmbientBackground from '../components/backgrounds/AmbientBackground.jsx';
 import { copy, rootFor } from '../i18n/index.mjs';
 
-const { lang = 'en', title = 'Ahmet Servet Polat', description = 'Projects, writing, and a place to think in public.', alternatePath } = Astro.props;
+const { lang = 'en', title = 'Ahmet Servet Polat', description = 'Projects, writing, and a place to think in public.', alternatePath, animateBackground = true } = Astro.props;
 const t = copy[lang];
 const path = Astro.url.pathname;
 const alternateHref = alternatePath || rootFor(lang === 'en' ? 'tr' : 'en');
@@ -33,8 +33,8 @@ const variant = import.meta.env.PUBLIC_BACKGROUND_EFFECT?.toLowerCase() === 'sil
   </head>
   <body>
     <a class="skip-link" href="#main">{t.skip}</a>
-    <div class="ambient-background" aria-hidden="true">
-      <AmbientBackground variant={variant} client:only="react" />
+    <div class="ambient-background" data-static={!animateBackground ? 'true' : undefined} aria-hidden="true">
+      {animateBackground && <AmbientBackground variant={variant} client:only="react" />}
     </div>
     <div class="page-frame">
       <header class="site-header shell">

@@ -28,6 +28,6 @@ docker run --rm -p 8080:80 ahmetservet-preview
 
 The homepage has English and Turkish versions. UI copy lives in `src/i18n/en.json` and `src/i18n/tr.json`; Astro handles the `/tr/` locale route. The project and article shown there are labeled previews, ready to be replaced with real content. Article source files are in `src/content/writing/`. Plain articles can be `.md`; interactive articles can be `.mdx`. Images and short videos can live in `public/` and be referenced from an article by URL, such as `/media/example.mp4`.
 
-The CV currently opens the existing Google Drive PDF. The email link opens the visitor's mail app. A site-hosted PDF and contact form can be added later if desired. The old Ghost posts and URL paths are intentionally not migrated.
+The résumé is stored in `public/resume.pdf` and is previewed at `/resume/` and `/tr/resume/`; the browser's built-in PDF viewer provides zoom and download controls. The email link opens the visitor's mail app. The old Ghost posts and URL paths are intentionally not migrated.
 
 The animated background components derive from React Bits; see `LICENSE-REACT-BITS.md`.

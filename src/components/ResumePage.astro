@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { copy, rootFor } from '../i18n/index.mjs';
+
+const { lang = 'en' } = Astro.props;
+const t = copy[lang];
+const resumeUrl = '/resume.pdf';
+const alternatePath = lang === 'en' ? '/tr/resume/' : '/resume/';
+---
+
+<BaseLayout lang={lang} title={`${t.resume.title} — Ahmet Servet Polat`} description={t.resume.description} alternatePath={alternatePath} animateBackground={false}>
+  <article class="detail-page resume-page">
+    <a class="back-link" href={rootFor(lang)}>{t.back}</a>
+
+    <header class="detail-header resume-header">
+      <h1>{t.resume.title}</h1>
+      <p class="detail-lead">{t.resume.description}</p>
+      <div class="resume-actions">
+        <a class="resume-action" href={resumeUrl} download>{t.resume.download}</a>
+        <a class="resume-action" href={resumeUrl} target="_blank" rel="noopener noreferrer">{t.resume.open}</a>
+      </div>
+    </header>
+
+    <section class="resume-viewer" aria-label={t.resume.viewerTitle}>
+      <iframe src={resumeUrl} title={t.resume.viewerTitle}></iframe>
+    </section>
+  </article>
+</BaseLayout>

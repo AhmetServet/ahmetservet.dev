@@ -6,13 +6,14 @@ const { lang = 'en' } = Astro.props;
 const t = copy[lang];
 const articlePath = lang === 'tr' ? '/tr/writing/sakin-bir-yer/' : '/writing/a-quieter-place/';
 const projectPath = lang === 'tr' ? '/tr/projects/project-preview/' : '/projects/project-preview/';
+const resumePath = lang === 'tr' ? '/tr/resume/' : '/resume/';
 ---
 
 <BaseLayout lang={lang} alternatePath={rootFor(lang === 'en' ? 'tr' : 'en')} description={`${t.introLead} ${t.introRest}`}>
   <div class="homepage">
     <section class="intro" aria-labelledby="intro-title">
       <h1 id="intro-title"><em>{t.introLead}</em> {t.introRest}</h1>
-      <a class="resume-link" href="/resume.pdf" target="_blank" rel="noopener noreferrer">{t.nav.resume}</a>
+      <a class="resume-link" href={resumePath}>{t.nav.resume}</a>
     </section>
 
     <section class="plain-section" id="work" aria-labelledby="work-title">
