@@ -15,14 +15,7 @@ The local preview is at <http://localhost:4321/>. Build with `pnpm build`, then 
 
 ## Coolify
 
-Create a Dockerfile application from this repository and expose container port **80**. Set `PUBLIC_BACKGROUND_EFFECT` as a **build variable / Docker build argument** to `grainient` (default) or `silk`, then redeploy. Astro produces static files, so changing a runtime variable without rebuilding the image will not change the animation.
-
-The image can also be checked locally:
-
-```sh
-docker build --build-arg PUBLIC_BACKGROUND_EFFECT=grainient -t ahmetservet-preview .
-docker run --rm -p 8080:80 ahmetservet-preview
-```
+Create a Dockerfile application from this repository and expose container port **80**. Keep **Inject Build Args to Dockerfile** enabled under `Configuration > Advanced`, then add `PUBLIC_BACKGROUND_EFFECT` under `Configuration > Environment Variables` as a **build variable** with the value `grainient` (default) or `silk`. Astro produces static files, so changing a runtime variable without rebuilding the image will not change the animation.
 
 ## Content
 

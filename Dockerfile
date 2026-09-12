@@ -7,7 +7,6 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
-ARG PUBLIC_BACKGROUND_EFFECT=grainient
 ENV PUBLIC_BACKGROUND_EFFECT=${PUBLIC_BACKGROUND_EFFECT}
 RUN pnpm run build
 
