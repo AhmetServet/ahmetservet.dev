@@ -59,10 +59,6 @@ const variant = import.meta.env.PUBLIC_BACKGROUND_EFFECT?.toLowerCase() === 'sil
       </header>
 
       <main id="main" class="shell"><slot /></main>
-
-      <footer class="site-footer shell">
-        <span>© {new Date().getFullYear()} Ahmet Servet Polat</span>
-      </footer>
     </div>
     <script>
       const button = document.querySelector('#theme-toggle');
