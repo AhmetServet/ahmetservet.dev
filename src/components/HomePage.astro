@@ -1,10 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { copy, rootFor } from '../i18n/index.mjs';
 
 const { lang = 'en' } = Astro.props;
 const t = copy[lang];
-const articlePath = lang === 'tr' ? '/tr/writing/sakin-bir-yer/' : '/writing/a-quieter-place/';
+const writingEntries = (await getCollection('writing', ({ data }) => data.locale === 'en'))
+  .sort((a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt));
 const projectPath = lang === 'tr' ? '/tr/projects/project-preview/' : '/projects/project-preview/';
 const resumePath = lang === 'tr' ? '/tr/resume/' : '/resume/';
 ---
@@ -20,14 +22,13 @@ const resumePath = lang === 'tr' ? '/tr/resume/' : '/resume/';
       <h2 id="work-title">{t.nav.work}</h2>
       <div class="plain-links">
         <a href={projectPath}>{t.workPreview}</a>
-        <a href="https://github.com/AhmetServet" target="_blank" rel="noopener noreferrer">{t.github}</a>
       </div>
     </section>
 
     <section class="plain-section" id="writing" aria-labelledby="writing-title">
       <h2 id="writing-title">{t.nav.writing}</h2>
       <div class="plain-links">
-        <a href={articlePath}>{t.writingPreview}</a>
+        {writingEntries.map(entry => <a href={`/writing/${entry.data.slug}/`}>{entry.data.title}</a>)}
       </div>
     </section>
 

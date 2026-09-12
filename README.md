@@ -26,8 +26,8 @@ docker run --rm -p 8080:80 ahmetservet-preview
 
 ## Content
 
-The homepage is available in English at `/` and Turkish at `/tr/`. The header provides the language switch and light/dark theme toggle; the homepage links to the project, writing, résumé, GitHub, LinkedIn, and email. UI copy lives in `src/i18n/en.json` and `src/i18n/tr.json`. The project and article shown there are labeled previews, ready to be replaced with real content. Article source files are in `src/content/writing/`. Plain articles can be `.md`; interactive articles can be `.mdx`. Images and short videos can live in `public/` and be referenced from an article by URL, such as `/media/example.mp4`.
+The homepage is available in English at `/` and Turkish at `/tr/`. The header provides the language switch and light/dark theme toggle; the homepage links to the project, writing, résumé, GitHub, LinkedIn, and email. UI copy lives in `src/i18n/en.json` and `src/i18n/tr.json`. Article source files are in `src/content/writing/`. Plain articles can be `.md`; interactive articles can be `.mdx`. Images and short videos can live in `public/` and be referenced from an article by URL, such as `/media/example.mp4`.
 
-The résumé is stored in `public/resume.pdf` and is previewed at `/resume/` and `/tr/resume/`; the page also provides download and new-tab actions. The email link opens the visitor's mail app. The old Ghost posts and URL paths are intentionally not migrated.
+The résumé is stored in `public/resume.pdf` and is previewed at `/resume/` and `/tr/resume/`; the page also provides download and new-tab actions. The email link opens the visitor's mail app. The two existing Ghost posts are stored locally as Markdown files.
 
 The animated background components derive from React Bits; see `LICENSE-REACT-BITS.md`.

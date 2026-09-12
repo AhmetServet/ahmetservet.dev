@@ -9,7 +9,7 @@ const writing = defineCollection({
     description: z.string(),
     locale: z.enum(['en', 'tr']),
     slug: z.string(),
-    kind: z.enum(['preview', 'essay']).default('essay')
+    publishedAt: z.string().datetime()
   })
 });
 

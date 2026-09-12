@@ -6,14 +6,22 @@ import { copy, rootFor } from '../i18n/index.mjs';
 const { entry, lang } = Astro.props;
 const t = copy[lang];
 const { Content } = await render(entry);
-const alternatePath = lang === 'en' ? '/tr/writing/sakin-bir-yer/' : '/writing/a-quieter-place/';
+const alternatePath = lang === 'en' ? '/tr/' : '/';
+const publishedDate = new Date(entry.data.publishedAt);
+const publishedDateLabel = new Intl.DateTimeFormat(lang === 'tr' ? 'tr-TR' : 'en-GB', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC'
+}).format(publishedDate);
 ---
 
-<BaseLayout lang={lang} title={`${entry.data.title} — Ahmet Servet Polat`} description={entry.data.description} alternatePath={alternatePath}>
+<BaseLayout lang={lang} title={`${entry.data.title} — Ahmet Servet Polat`} description={entry.data.description} alternatePath={alternatePath} alternateIsTranslation={false}>
   <article class="detail-page article-page">
     <a class="back-link" href={rootFor(lang)}>{t.back}</a>
     <header class="detail-header">
       <h1>{entry.data.title}</h1>
+      <time class="article-date" datetime={publishedDate.toISOString()}>{publishedDateLabel}</time>
     </header>
     <div class="article-prose"><Content /></div>
   </article>
