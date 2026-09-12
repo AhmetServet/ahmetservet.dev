@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://ahmetservet.dev',
   trailingSlash: 'always',
+  devToolbar: { enabled: false },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'tr'],
