@@ -20,15 +20,12 @@
     "lightAction": "Switch to light theme",
     "darkAction": "Switch to dark theme"
   },
-  "introLead": "I’m Ahmet Servet Polat.",
-  "introRest": "I study computer engineering, build software, and write about what I learn.",
-  "workPreview": "Project page preview",
+  "introLead": "",
+  "introRest": "I’m a computer engineer building AI systems, data-driven applications, and backend systems. I care about turning complex ideas into useful software.",
   "email": "ahmetservet04@gmail.com",
   "github": "GitHub",
   "linkedin": "LinkedIn",
   "back": "Back home",
-  "projectHeading": "Project page preview",
-  "projectLead": "Real project details will be added here.",
   "notFound": {
     "title": "I think you lost.",
     "home": "Get me home",

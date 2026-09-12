@@ -13,4 +13,14 @@ const writing = defineCollection({
   })
 });
 
-export const collections = { writing };
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    locale: z.enum(['en', 'tr']),
+    path: z.string()
+  })
+});
+
+export const collections = { writing, projects };

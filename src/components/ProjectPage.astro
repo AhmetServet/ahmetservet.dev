@@ -1,0 +1,22 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { copy, rootFor } from '../i18n/index.mjs';
+
+const { entry, lang } = Astro.props;
+const t = copy[lang];
+const { Content } = await render(entry);
+const alternatePath = lang === 'en'
+  ? `/tr/projects/${entry.data.path}/`
+  : `/projects/${entry.data.path}/`;
+---
+
+<BaseLayout lang={lang} title={`${entry.data.title} — Ahmet Servet Polat`} description={entry.data.description} alternatePath={alternatePath}>
+  <article class="detail-page article-page">
+    <a class="back-link" href={rootFor(lang)}>{t.back}</a>
+    <header class="detail-header">
+      <h1>{entry.data.title}</h1>
+    </header>
+    <div class="article-prose"><Content /></div>
+  </article>
+</BaseLayout>

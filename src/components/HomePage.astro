@@ -5,6 +5,7 @@ import { copy, rootFor } from '../i18n/index.mjs';
 
 const { lang = 'en' } = Astro.props;
 const t = copy[lang];
+const projectEntries = await getCollection('projects', ({ data }) => data.locale === lang);
 const writingEntries = (await getCollection('writing', ({ data }) => data.locale === 'en'))
   .sort((a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt));
 const dateFormatter = new Intl.DateTimeFormat(lang === 'tr' ? 'tr-TR' : 'en-GB', {
@@ -13,21 +14,25 @@ const dateFormatter = new Intl.DateTimeFormat(lang === 'tr' ? 'tr-TR' : 'en-GB',
   year: 'numeric',
   timeZone: 'UTC'
 });
-const projectPath = lang === 'tr' ? '/tr/projects/project-preview/' : '/projects/project-preview/';
 const resumePath = lang === 'tr' ? '/tr/resume/' : '/resume/';
 ---
 
 <BaseLayout lang={lang} alternatePath={rootFor(lang === 'en' ? 'tr' : 'en')} description={`${t.introLead} ${t.introRest}`}>
   <div class="homepage">
     <section class="intro" aria-labelledby="intro-title">
-      <h1 id="intro-title"><em>{t.introLead}</em> {t.introRest}</h1>
+      <h1 id="intro-title">
+        {t.introLead && <><em>{t.introLead}</em>{' '}</>}
+        {t.introRest}
+      </h1>
       <a class="resume-link" href={resumePath}>{t.nav.resume}</a>
     </section>
 
     <section class="plain-section" id="work" aria-labelledby="work-title">
       <h2 id="work-title">{t.nav.work}</h2>
       <div class="plain-links">
-        <a href={projectPath}>{t.workPreview}</a>
+        {projectEntries.map(entry => (
+          <a href={`${lang === 'tr' ? '/tr' : ''}/projects/${entry.data.path}/`}>{entry.data.title}</a>
+        ))}
       </div>
     </section>
 

@@ -20,15 +20,12 @@
     "lightAction": "Açık temaya geç",
     "darkAction": "Koyu temaya geç"
   },
-  "introLead": "Ben Ahmet Servet Polat.",
-  "introRest": "Bilgisayar mühendisliği okuyorum, yazılım geliştiriyorum ve öğrendiklerimi yazıyorum.",
-  "workPreview": "Proje sayfası örneği",
+  "introLead": "",
+  "introRest": "Yapay zekâ sistemleri, veri odaklı uygulamalar ve backend sistemleri geliştiren bir bilgisayar mühendisiyim. Karmaşık fikirleri faydalı yazılımlara dönüştürmeyi seviyorum.",
   "email": "ahmetservet04@gmail.com",
   "github": "GitHub",
   "linkedin": "LinkedIn",
   "back": "Ana sayfa",
-  "projectHeading": "Proje sayfası örneği",
-  "projectLead": "Gerçek proje bilgileri buraya eklenecek.",
   "notFound": {
     "title": "Sanırım kayboldun.",
     "home": "Beni ana sayfaya götür",
