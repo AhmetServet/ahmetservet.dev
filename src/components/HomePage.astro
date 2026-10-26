@@ -5,7 +5,8 @@ import { copy, rootFor } from '../i18n/index.mjs';
 
 const { lang = 'en' } = Astro.props;
 const t = copy[lang];
-const projectEntries = await getCollection('projects', ({ data }) => data.locale === lang);
+const projectEntries = (await getCollection('projects', ({ data }) => data.locale === lang))
+  .sort((a, b) => a.data.order - b.data.order);
 const writingEntries = (await getCollection('writing', ({ data }) => data.locale === 'en'))
   .sort((a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt));
 const dateFormatter = new Intl.DateTimeFormat(lang === 'tr' ? 'tr-TR' : 'en-GB', {

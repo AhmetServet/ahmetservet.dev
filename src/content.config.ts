@@ -19,7 +19,8 @@ const projects = defineCollection({
     title: z.string(),
     description: z.string(),
     locale: z.enum(['en', 'tr']),
-    path: z.string()
+    path: z.string(),
+    order: z.number().int()
   })
 });
 
